@@ -1,0 +1,10 @@
+function: FAIL
+function without parameters: FAIL
+recursive: FAIL
+local/global: FAIL
+export: FAIL
+recursive/local: FAIL
+factorial: FAIL
+factorial/local: FAIL
+gcd 18 14: FAIL
+0
