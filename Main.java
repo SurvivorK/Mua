@@ -14,21 +14,19 @@ public class Main {
     public static NameSpace variables = new NameSpace();
     public static void main(String [] args) {
 
-        try {
-            File file = new File("./in");
-            InputStream fin = new FileInputStream(file);
-            System.setIn(fin);
-            sc = new Scanner(fin);
-            System.setIn(stdin);
-        while (sc.hasNext()) {
+//        try {
+//            File file = new File("./in");
+//            InputStream fin = new FileInputStream(file);
+//            System.setIn(fin);
+//            sc = new Scanner(fin);
+//            System.setIn(stdin);
             parser p = new parser(sc, variables);
-            p.parse();
-        }
-            fin.close();
-        } catch(FileNotFoundException e) {
-            e.printStackTrace();
-        }catch (IOException e) {
-
-        }
+            p.parseAll();
+//            fin.close();
+//        } catch(FileNotFoundException e) {
+//            e.printStackTrace();
+//        }catch (IOException e) {
+//
+//        }
     }
 }

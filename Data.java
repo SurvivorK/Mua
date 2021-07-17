@@ -11,23 +11,31 @@ public class Data {
         "sentence", "list", "join", "word",
         "isempty", "islist", "isnumber", "isbool","isword",
         "save", "load", "erall",
-        "first", "butfirst", "butlast",
-        "print", "read", "readlist",
+        "first", "butfirst", "butlast","last",
+        "print", "read", "readlist", "random",
         "add", "sub", "mul", "div", "mod",
         "eq", "gt", "lt",
         "and", "or", "run", "if",
-        "not", "return", "export"
+        "not", "return", "export","sentence","list"
         );
     public Data(String str) {
         this.val = str.trim();
     }
     public boolean isFunction() {
-        if (val.matches("^\\[.*\\[.*\\].*\\[.*\\].*\\]$")) return true;
+        if (val.matches("^\\[[\\s\\S]*\\[[\\s\\S]*\\][\\s\\S]*\\[[\\s\\S]*\\][\\s\\S]*\\]$")) return true;
         else return false;
     }
     public boolean isOperator() {
         if (val.equals("if")) {
             val = "IF";
+            return true;
+        }
+        if (val.equals("sqrt")) {
+            val = "SQRT";
+            return true;
+        }
+        if (val.equals("int")) {
+            val = "Int";
             return true;
         }
         if (val.equals("return")) {
@@ -55,7 +63,7 @@ public class Data {
         else return false;
     }
     public boolean isEmpty() {
-        return this.getValue() == "";
+        return this.getValue().trim().isEmpty();
     }
     public String toString() {
         return val;
@@ -74,7 +82,7 @@ public class Data {
     }
     public String getValue() {
         if (val.charAt(0) == '\"') return val.substring(1);
-        if (val.charAt(0) == '[') return val.substring(1, val.length()-1);
+        if (val.charAt(0) == '[') return val.substring(1, val.length()-1).trim();
         return val;
     }
     public boolean not() {

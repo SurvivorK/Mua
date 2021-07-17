@@ -7,6 +7,7 @@ public class NameSpace {
 
     NameSpace() {
         var.clear();
+        insert("pi", new Data("3.14159"));
     }
 
 
@@ -41,6 +42,15 @@ public class NameSpace {
     public void check() {
         for (HashMap.Entry<String, Data> entry : var.entrySet()) {
             System.out.println("key = " + entry.getKey() + ", value = " + entry.getValue());
+        }
+    }
+    public void erall() {
+        var.clear();
+    }
+
+    public void poall() {
+        for (String name : var.keySet()) {
+            System.out.println(name);
         }
     }
 }  
